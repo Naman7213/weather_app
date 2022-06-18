@@ -1,3 +1,4 @@
+require('dotenv').config();
 const cityName = document.getElementById("cityName");
 const submitBtn = document.getElementById("submitBtn");
 const city_name = document.getElementById("city_name");
@@ -15,8 +16,8 @@ const getInfo = async(event) => {
     }
     else{
         try{
-            let API_KEY='03c6136ae5414ee54dac1c1b3b19a5e8';
-            let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=${API_KEY}`;
+            // let API_KEY= process.env.API_KEY;
+            let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=${process.env.API_KEY}`;
             const response = await fetch(url);
             const jsonResponse = await response.json();
             const arrData = [jsonResponse];
